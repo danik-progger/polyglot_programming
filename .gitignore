@@ -1,3 +1,7 @@
 rs/target
 .vscode
 ts/node_modules
+node_modules
+# Added by cargo
+
+/target
