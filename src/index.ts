@@ -17,7 +17,7 @@ enum Color {
     Red,
     Green,
     Blue,
-    Yellow
+    Yellow,
 }
 
 function printColor(color: Color) {
@@ -36,9 +36,9 @@ function printColor(color: Color) {
 printColor(Color.Red);
 
 type Man = {
-    age: number,
-    name: string
-}
+    age: number;
+    name: string;
+};
 
 type Item = number | string | Man;
 
@@ -55,3 +55,17 @@ const numbers: number[] = [1, 2, 3];
 console.log(numbers);
 append(numbers);
 console.log(numbers);
+
+// ----- OPTIONS -----
+function foo(n: number | undefined): number | undefined {
+    return n === undefined ? undefined : n * 5;
+}
+
+console.log(foo(5));
+console.log(foo(undefined));
+console.log(foo(0));
+
+function practice(vec: number[], index: number): number {
+    return (vec[index] ?? index) * 5;
+}
+

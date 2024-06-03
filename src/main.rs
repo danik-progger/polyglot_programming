@@ -33,6 +33,22 @@ fn main() {
 
     // let mut items: Vec<usize> = vec![1, 2, 3];
     // items.push(append(&mut items); -- error
+
+    // ----- ERROR -----
+
+    let agr = std::env::args()
+        .nth(1)
+        .expect("the file name must be passed in");
+
+    let file = std::fs::read_to_string(agr).expect("unable to read file");
+
+    file.lines().for_each(|line| {
+        if let Ok(v) = line.parse::<usize>() {
+            println!("{:?}", v);
+        } else {
+            println!("Line not a number");
+        }
+    });
 }
 
 // ----- ENUM -----
@@ -83,4 +99,13 @@ enum Item {
 
 fn append(items: &mut Vec<Item>) {
     items.push(Item::String("hello fem!".to_string()));
+}
+
+// ---- OPTION -----
+fn foo(n: Option<usize>) -> Option<usize> {
+    return Some(n? * 5);
+}
+
+fn practice(nums: Vec<usize>, index: usize) -> usize {
+    return nums.get(index).unwrap_or(&index) * 5;
 }
